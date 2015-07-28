@@ -1,0 +1,129 @@
+﻿@model IEnumerable<MVCApplication.Models.InvoiceViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@if(Model!=null)
+{
+    foreach (var item in Model)
+    {
+        <div>
+            <h3>Invoice to @item.ClientName</h3>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.InvoiceDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item.InvoiceDate)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.InvoiceDueDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item.InvoiceDueDate)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ClientName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item.ClientName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ClientAddress)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item.ClientAddress)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ClientCurrency)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item.ClientCurrency)
+                </dd>
+
+            </dl>
+        </div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items.First().Code)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items.First().Subject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items.First().Amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items.First().UnitPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items.First().Sum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items.First().Tax)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items.First().Sum_tax)
+                </th>
+            </tr>
+
+            @foreach (var invoiceItem in item.Items)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => invoiceItem.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => invoiceItem.Subject)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => invoiceItem.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => invoiceItem.UnitPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => invoiceItem.Sum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => invoiceItem.Tax)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => invoiceItem.Sum_tax)
+                    </td>
+                </tr>
+            }
+        </table>
+    <div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceSum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(modelItem => item.InvoiceSum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceSum_tax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(modelItem => item.InvoiceSum_tax)
+        </dd>
+     </dl>
+     </div>
+    }
+
+}

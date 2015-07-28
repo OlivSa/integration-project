@@ -1,0 +1,2355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:typens="https://secure.maventa.com/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="Maventa" targetNamespace="https://secure.maventa.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="https://secure.maventa.com/">
+      <xsd:complexType name="ItemsInC">
+        <xsd:all>
+          <xsd:element name="definition" type="xsd:string" />
+          <xsd:element name="position" type="xsd:int" />
+          <xsd:element name="sum_tax" type="xsd:string" />
+          <xsd:element name="unit_type" type="xsd:string" />
+          <xsd:element name="data" type="xsd:string" />
+          <xsd:element name="subject" type="xsd:string" />
+          <xsd:element name="discount" type="xsd:double" />
+          <xsd:element name="tax" type="xsd:double" />
+          <xsd:element name="amount" type="xsd:double" />
+          <xsd:element name="item_code" type="xsd:string" />
+          <xsd:element name="sum" type="xsd:string" />
+          <xsd:element name="price" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FinvoiceTrx">
+        <xsd:all>
+          <xsd:element name="files" type="typens:ActionWebService..Base64Array" />
+          <xsd:element name="filenames" type="typens:StringArray" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FileAttachmentArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:FileAttachment[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="SettingValueArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:SettingValue[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="StringArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="xsd:string[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ItemsInCArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:ItemsInC[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ConsumerAgreementQuery">
+        <xsd:all>
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="state" type="xsd:string" />
+          <xsd:element name="customer_nr" type="xsd:string" />
+          <xsd:element name="timestamp" type="xsd:string" />
+          <xsd:element name="reference_nr" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="phone" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InboundInvoiceParamsOutC">
+        <xsd:all>
+          <xsd:element name="customer_post_office" type="xsd:string" />
+          <xsd:element name="customer_email" type="xsd:string" />
+          <xsd:element name="state" type="xsd:int" />
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="order_nr" type="xsd:string" />
+          <xsd:element name="company_phone" type="xsd:string" />
+          <xsd:element name="invoice_delivery_address" type="typens:InvoiceDeliveryAddressOut" />
+          <xsd:element name="company_paper_fee" type="xsd:string" />
+          <xsd:element name="delivery_date" type="xsd:string" />
+          <xsd:element name="company_address2" type="xsd:string" />
+          <xsd:element name="company_website" type="xsd:string" />
+          <xsd:element name="company_email" type="xsd:string" />
+          <xsd:element name="company_post_code" type="xsd:string" />
+          <xsd:element name="customer_nr" type="xsd:string" />
+          <xsd:element name="sum_tax" type="xsd:string" />
+          <xsd:element name="customer_reference" type="xsd:string" />
+          <xsd:element name="customer_post_code" type="xsd:string" />
+          <xsd:element name="company_country" type="xsd:string" />
+          <xsd:element name="company_city" type="xsd:string" />
+          <xsd:element name="customer_country" type="xsd:string" />
+          <xsd:element name="invoice_nr" type="xsd:string" />
+          <xsd:element name="customer_address1" type="xsd:string" />
+          <xsd:element name="company_bid" type="xsd:string" />
+          <xsd:element name="invoice_seller_information" type="typens:InvoiceSellerInformationOut" />
+          <xsd:element name="accounts" type="typens:InvoiceAccountParamsOutArray" />
+          <xsd:element name="user_email" type="xsd:string" />
+          <xsd:element name="reference_nr" type="xsd:string" />
+          <xsd:element name="currency" type="xsd:string" />
+          <xsd:element name="company_post_office" type="xsd:string" />
+          <xsd:element name="customer_address2" type="xsd:string" />
+          <xsd:element name="company_comment" type="xsd:string" />
+          <xsd:element name="lang" type="xsd:string" />
+          <xsd:element name="items" type="typens:ItemsOutArray" />
+          <xsd:element name="work_order_nr" type="xsd:string" />
+          <xsd:element name="company_gsm" type="xsd:string" />
+          <xsd:element name="notes" type="xsd:string" />
+          <xsd:element name="company_reference" type="xsd:string" />
+          <xsd:element name="date" type="xsd:string" />
+          <xsd:element name="customer_name" type="xsd:string" />
+          <xsd:element name="customer_state" type="xsd:string" />
+          <xsd:element name="company_fax" type="xsd:string" />
+          <xsd:element name="user_name" type="xsd:string" />
+          <xsd:element name="payment_terms" type="xsd:string" />
+          <xsd:element name="customer_contact_p" type="xsd:string" />
+          <xsd:element name="customer_bid" type="xsd:string" />
+          <xsd:element name="company_reminder" type="xsd:string" />
+          <xsd:element name="user_phone" type="xsd:string" />
+          <xsd:element name="attachments" type="typens:FileAttachmentArray" />
+          <xsd:element name="company_interest" type="xsd:string" />
+          <xsd:element name="date_due" type="xsd:string" />
+          <xsd:element name="sum" type="xsd:string" />
+          <xsd:element name="id" type="xsd:string" />
+          <xsd:element name="delivery_type" type="xsd:string" />
+          <xsd:element name="company_address1" type="xsd:string" />
+          <xsd:element name="company_name" type="xsd:string" />
+          <xsd:element name="customer_ovt" type="xsd:string" />
+          <xsd:element name="company_state" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ItemsOutArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:ItemsOut[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="UserParamsInE">
+        <xsd:all>
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="notifications_disabled" type="xsd:boolean" />
+          <xsd:element name="first_name" type="xsd:string" />
+          <xsd:element name="user_role" type="xsd:string" />
+          <xsd:element name="emails_disabled" type="xsd:boolean" />
+          <xsd:element name="password_confirmation" type="xsd:string" />
+          <xsd:element name="last_name" type="xsd:string" />
+          <xsd:element name="password" type="xsd:string" />
+          <xsd:element name="phone" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ConsumerLinkResponse">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="message" type="xsd:string" />
+          <xsd:element name="reference_nr" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceActionParamsOut">
+        <xsd:all>
+          <xsd:element name="timestamp" type="xsd:string" />
+          <xsd:element name="action" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ConsumerInfoIn">
+        <xsd:all>
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="customer_nr" type="xsd:string" />
+          <xsd:element name="reference_nr" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="phone" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FileOut">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="file" type="soapenc:base64" />
+          <xsd:element name="format" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceParamsInC">
+        <xsd:all>
+          <xsd:element name="order_nr" type="xsd:string" />
+          <xsd:element name="invoice_delivery_address" type="typens:InvoiceDeliveryAddressIn" />
+          <xsd:element name="company_paper_fee" type="xsd:string" />
+          <xsd:element name="delivery_date" type="xsd:string" />
+          <xsd:element name="company_website" type="xsd:string" />
+          <xsd:element name="company_postal" type="typens:PostalAddressParamsIn" />
+          <xsd:element name="bank_accounts" type="typens:BankAccountParamsInArray" />
+          <xsd:element name="sum_tax" type="xsd:string" />
+          <xsd:element name="customer_reference" type="xsd:string" />
+          <xsd:element name="data" type="xsd:string" />
+          <xsd:element name="require_sign" type="xsd:boolean" />
+          <xsd:element name="invoice_nr" type="xsd:string" />
+          <xsd:element name="invoice_seller_information" type="typens:InvoiceSellerInformationIn" />
+          <xsd:element name="currency" type="xsd:string" />
+          <xsd:element name="customer_maventa_id" type="xsd:string" />
+          <xsd:element name="reference_nr" type="xsd:string" />
+          <xsd:element name="lang" type="xsd:string" />
+          <xsd:element name="company_comment" type="xsd:string" />
+          <xsd:element name="customer" type="typens:CustomerParamsInC" />
+          <xsd:element name="work_order_nr" type="xsd:string" />
+          <xsd:element name="items" type="typens:ItemsInCArray" />
+          <xsd:element name="notes" type="xsd:string" />
+          <xsd:element name="company_reference" type="xsd:string" />
+          <xsd:element name="date" type="xsd:string" />
+          <xsd:element name="payment_terms" type="xsd:string" />
+          <xsd:element name="company_reminder" type="xsd:string" />
+          <xsd:element name="attachments" type="typens:FileAttachmentArray" />
+          <xsd:element name="company_interest" type="xsd:string" />
+          <xsd:element name="delivery_type" type="xsd:string" />
+          <xsd:element name="sum" type="xsd:string" />
+          <xsd:element name="date_due" type="xsd:string" />
+          <xsd:element name="disabled_routes" type="typens:RouteDisable" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceParamsOutCArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:InvoiceParamsOutC[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="CompanyLookupOutExtended">
+        <xsd:all>
+          <xsd:element name="state" type="xsd:string" />
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="post_code" type="xsd:string" />
+          <xsd:element name="bid" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="post_office" type="xsd:string" />
+          <xsd:element name="receive_invoices" type="xsd:boolean" />
+          <xsd:element name="receive_orders" type="xsd:boolean" />
+          <xsd:element name="address1" type="xsd:string" />
+          <xsd:element name="maventa_id" type="xsd:string" />
+          <xsd:element name="edis" type="typens:ElectronicInvoiceAddressArray" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="address2" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="DuettoPaymentStruct">
+        <xsd:all>
+          <xsd:element name="payee_identification_number" type="xsd:string" />
+          <xsd:element name="invoice_number" type="xsd:string" />
+          <xsd:element name="invoicee_name" type="xsd:string" />
+          <xsd:element name="invoicee_ytunnus" type="xsd:string" />
+          <xsd:element name="paid_amount" type="xsd:string" />
+          <xsd:element name="reference_number" type="xsd:string" />
+          <xsd:element name="payee_name" type="xsd:string" />
+          <xsd:element name="payment_day" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceAccountParamsOutArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:InvoiceAccountParamsOut[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="OperatorInfo">
+        <xsd:all>
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="operator_id" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CollectionResponse">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="invoice_id" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceSellerInformationOut">
+        <xsd:all>
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="id" type="xsd:string" />
+          <xsd:element name="phone" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="PostalAddressParamsOutArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:PostalAddressParamsOut[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ElectronicInvoiceAddress">
+        <xsd:all>
+          <xsd:element name="operator_code" type="xsd:string" />
+          <xsd:element name="eia" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ActionWebService..Base64Array">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="soapenc:base64[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ConsumerInfoOut">
+        <xsd:all>
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="state" type="xsd:string" />
+          <xsd:element name="customer_nr" type="xsd:string" />
+          <xsd:element name="reference_nr" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="phone" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CompanyParamsOut">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="bid" type="xsd:string" />
+          <xsd:element name="maventa_id" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="id" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="IssuingAgencyInfoArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:IssuingAgencyInfo[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ApiKeys">
+        <xsd:all>
+          <xsd:element name="vendor_api_key" type="xsd:string" />
+          <xsd:element name="company_uuid" type="xsd:string" />
+          <xsd:element name="user_api_key" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="SettingValue">
+        <xsd:all>
+          <xsd:element name="key" type="xsd:string" />
+          <xsd:element name="value" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InboundInvoiceList">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="items" type="typens:InboundInvoiceListItemArray" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FileStatus">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="filehash" type="xsd:string" />
+          <xsd:element name="filename" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RegistrationParamsInD">
+        <xsd:all>
+          <xsd:element name="state" type="xsd:string" />
+          <xsd:element name="bank_accounts" type="typens:BankAccountParamsInArray" />
+          <xsd:element name="post_code" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="license_agreement" type="xsd:boolean" />
+          <xsd:element name="vendor_api_key" type="xsd:string" />
+          <xsd:element name="company_email" type="xsd:string" />
+          <xsd:element name="post_office" type="xsd:string" />
+          <xsd:element name="company_bid" type="xsd:string" />
+          <xsd:element name="user_email" type="xsd:string" />
+          <xsd:element name="no_vat" type="xsd:boolean" />
+          <xsd:element name="receive_invoices" type="xsd:boolean" />
+          <xsd:element name="user_first_name" type="xsd:string" />
+          <xsd:element name="address1" type="xsd:string" />
+          <xsd:element name="city" type="xsd:string" />
+          <xsd:element name="address2" type="xsd:string" />
+          <xsd:element name="email_activation" type="xsd:boolean" />
+          <xsd:element name="user_last_name" type="xsd:string" />
+          <xsd:element name="user_phone" type="xsd:string" />
+          <xsd:element name="company_name" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CompanyParamsOutArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:CompanyParamsOut[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="PostalAddressParamsIn">
+        <xsd:all>
+          <xsd:element name="state" type="xsd:string" />
+          <xsd:element name="fax" type="xsd:string" />
+          <xsd:element name="post_code" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="post_office" type="xsd:string" />
+          <xsd:element name="gsm" type="xsd:string" />
+          <xsd:element name="lang" type="xsd:string" />
+          <xsd:element name="address1" type="xsd:string" />
+          <xsd:element name="city" type="xsd:string" />
+          <xsd:element name="address2" type="xsd:string" />
+          <xsd:element name="default" type="xsd:boolean" />
+          <xsd:element name="phone" type="xsd:string" />
+          <xsd:element name="company_name" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ScanAddress">
+        <xsd:all>
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="state" type="xsd:string" />
+          <xsd:element name="post_code" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="post_office" type="xsd:string" />
+          <xsd:element name="address1" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="address2" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="VendorActionArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:VendorAction[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="CompanyLookupOutD">
+        <xsd:all>
+          <xsd:element name="state" type="xsd:string" />
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="post_code" type="xsd:string" />
+          <xsd:element name="bid" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="post_office" type="xsd:string" />
+          <xsd:element name="receive_invoices" type="xsd:boolean" />
+          <xsd:element name="receive_orders" type="xsd:boolean" />
+          <xsd:element name="address1" type="xsd:string" />
+          <xsd:element name="maventa_id" type="xsd:string" />
+          <xsd:element name="edis" type="typens:StringArray" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="address2" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="TrxListResponseD">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="file" type="soapenc:base64" />
+          <xsd:element name="trx_list_items" type="typens:TrxListItemDArray" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceDeliveryAddressIn">
+        <xsd:all>
+          <xsd:element name="state" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="post_code" type="xsd:string" />
+          <xsd:element name="post_office" type="xsd:string" />
+          <xsd:element name="address1" type="xsd:string" />
+          <xsd:element name="address2" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FileAttachment">
+        <xsd:all>
+          <xsd:element name="file" type="soapenc:base64" />
+          <xsd:element name="filename" type="xsd:string" />
+          <xsd:element name="attachment_type" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="UserParamsInD">
+        <xsd:all>
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="notifications_disabled" type="xsd:boolean" />
+          <xsd:element name="first_name" type="xsd:string" />
+          <xsd:element name="user_role" type="xsd:string" />
+          <xsd:element name="password_confirmation" type="xsd:string" />
+          <xsd:element name="last_name" type="xsd:string" />
+          <xsd:element name="password" type="xsd:string" />
+          <xsd:element name="phone" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="VendorActionOutput">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="vendor_actions" type="typens:VendorActionArray" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ConsumerInfoOutArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:ConsumerInfoOut[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ScanAccountParamsOut">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="address" type="typens:ScanAddress" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="UserParamsOut">
+        <xsd:all>
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="user_role" type="xsd:string" />
+          <xsd:element name="first_name" type="xsd:string" />
+          <xsd:element name="last_name" type="xsd:string" />
+          <xsd:element name="id" type="xsd:string" />
+          <xsd:element name="phone" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceParamsOutD">
+        <xsd:all>
+          <xsd:element name="customer_post_office" type="xsd:string" />
+          <xsd:element name="customer_email" type="xsd:string" />
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="state" type="xsd:int" />
+          <xsd:element name="order_nr" type="xsd:string" />
+          <xsd:element name="delivery_date" type="xsd:string" />
+          <xsd:element name="company_paper_fee" type="xsd:string" />
+          <xsd:element name="invoice_delivery_address" type="typens:InvoiceDeliveryAddressOut" />
+          <xsd:element name="customer_nr" type="xsd:string" />
+          <xsd:element name="customer_reference" type="xsd:string" />
+          <xsd:element name="error_message" type="xsd:string" />
+          <xsd:element name="sum_tax" type="xsd:string" />
+          <xsd:element name="customer_post_code" type="xsd:string" />
+          <xsd:element name="actions" type="typens:InvoiceActionParamsOutArray" />
+          <xsd:element name="invoice_seller_information" type="typens:InvoiceSellerInformationOut" />
+          <xsd:element name="accounts" type="typens:InvoiceAccountParamsOutArray" />
+          <xsd:element name="customer_country" type="xsd:string" />
+          <xsd:element name="invoice_nr" type="xsd:string" />
+          <xsd:element name="customer_address1" type="xsd:string" />
+          <xsd:element name="data" type="xsd:string" />
+          <xsd:element name="reference_nr" type="xsd:string" />
+          <xsd:element name="currency" type="xsd:string" />
+          <xsd:element name="customer_address2" type="xsd:string" />
+          <xsd:element name="company_comment" type="xsd:string" />
+          <xsd:element name="lang" type="xsd:string" />
+          <xsd:element name="items" type="typens:ItemsOutArray" />
+          <xsd:element name="notes" type="xsd:string" />
+          <xsd:element name="date" type="xsd:string" />
+          <xsd:element name="company_reference" type="xsd:string" />
+          <xsd:element name="work_order_nr" type="xsd:string" />
+          <xsd:element name="payment_terms" type="xsd:string" />
+          <xsd:element name="customer_name" type="xsd:string" />
+          <xsd:element name="customer_state" type="xsd:string" />
+          <xsd:element name="customer_contact_p" type="xsd:string" />
+          <xsd:element name="company_reminder" type="xsd:string" />
+          <xsd:element name="customer_comment" type="xsd:string" />
+          <xsd:element name="customer_bid" type="xsd:string" />
+          <xsd:element name="attachments" type="typens:FileAttachmentArray" />
+          <xsd:element name="date_due" type="xsd:string" />
+          <xsd:element name="sum" type="xsd:string" />
+          <xsd:element name="id" type="xsd:string" />
+          <xsd:element name="delivery_type" type="xsd:string" />
+          <xsd:element name="company_interest" type="xsd:string" />
+          <xsd:element name="customer_ovt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="SediOrderParamsOutArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:SediOrderParamsOut[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="RouteDisable">
+        <xsd:all>
+          <xsd:element name="email" type="xsd:boolean" />
+          <xsd:element name="relay" type="xsd:boolean" />
+          <xsd:element name="paper" type="xsd:boolean" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CustomerParamsInC">
+        <xsd:all>
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="state" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="bid" type="xsd:string" />
+          <xsd:element name="post_code" type="xsd:string" />
+          <xsd:element name="customer_nr" type="xsd:string" />
+          <xsd:element name="post_office" type="xsd:string" />
+          <xsd:element name="contact_p" type="xsd:string" />
+          <xsd:element name="gsm" type="xsd:string" />
+          <xsd:element name="customer_type" type="xsd:string" />
+          <xsd:element name="lang" type="xsd:string" />
+          <xsd:element name="address1" type="xsd:string" />
+          <xsd:element name="address2" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="phone" type="xsd:string" />
+          <xsd:element name="ovt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="UserParamsOutArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:UserParamsOut[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ItemsOut">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="definition" type="xsd:string" />
+          <xsd:element name="position" type="xsd:int" />
+          <xsd:element name="unit_type" type="xsd:string" />
+          <xsd:element name="sum_tax" type="xsd:string" />
+          <xsd:element name="subject" type="xsd:string" />
+          <xsd:element name="discount" type="xsd:double" />
+          <xsd:element name="amount" type="xsd:double" />
+          <xsd:element name="tax" type="xsd:double" />
+          <xsd:element name="sum" type="xsd:string" />
+          <xsd:element name="item_code" type="xsd:string" />
+          <xsd:element name="price" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="TrxListItemD">
+        <xsd:all>
+          <xsd:element name="invoice_id" type="xsd:string" />
+          <xsd:element name="invoice_nr" type="xsd:string" />
+          <xsd:element name="timestamp" type="xsd:string" />
+          <xsd:element name="action" type="xsd:string" />
+          <xsd:element name="price_maventa" type="xsd:string" />
+          <xsd:element name="customer_name" type="xsd:string" />
+          <xsd:element name="customer_bid" type="xsd:string" />
+          <xsd:element name="id" type="xsd:string" />
+          <xsd:element name="customer_company_uuid" type="xsd:string" />
+          <xsd:element name="pages" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceAccountParamsOut">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="bank" type="xsd:string" />
+          <xsd:element name="account" type="xsd:string" />
+          <xsd:element name="swift" type="xsd:string" />
+          <xsd:element name="iban" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="TrxListItemDArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:TrxListItemD[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="InboundInvoiceListItemArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:InboundInvoiceListItem[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="SediOrderParamsOut">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="order_id" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CompanyLogoParams">
+        <xsd:all>
+          <xsd:element name="logo" type="soapenc:base64" />
+          <xsd:element name="logo_w" type="xsd:int" />
+          <xsd:element name="logo_h" type="xsd:int" />
+          <xsd:element name="logo_x" type="xsd:int" />
+          <xsd:element name="logo_y" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CompanyLookupOutExtendedArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:CompanyLookupOutExtended[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="CompanySettingsParamsD">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="bid" type="xsd:string" />
+          <xsd:element name="print_and_send_letter_class" type="xsd:int" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="stop_duplicates" type="xsd:boolean" />
+          <xsd:element name="errors_to_user" type="xsd:boolean" />
+          <xsd:element name="error_emails" type="xsd:string" />
+          <xsd:element name="invoice_email" type="xsd:string" />
+          <xsd:element name="print_and_send_own_pdf" type="xsd:boolean" />
+          <xsd:element name="website" type="xsd:string" />
+          <xsd:element name="reports_emails" type="xsd:string" />
+          <xsd:element name="print_and_send_verified" type="xsd:boolean" />
+          <xsd:element name="print_and_send_request" type="xsd:int" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="email_remind_freq" type="xsd:int" />
+          <xsd:element name="print_and_send" type="xsd:int" />
+          <xsd:element name="reports" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RegistrationParamsOutD">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="e_invoice_address" type="xsd:string" />
+          <xsd:element name="company_uuid" type="xsd:string" />
+          <xsd:element name="user_api_key" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CollectionResponseArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:CollectionResponse[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="SediOrderFile">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="file" type="soapenc:base64" />
+          <xsd:element name="filename" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ElectronicInvoiceAddressArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:ElectronicInvoiceAddress[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="CompanyLookupParams">
+        <xsd:all>
+          <xsd:element name="search_string" type="xsd:string" />
+          <xsd:element name="disable_vies" type="xsd:boolean" />
+          <xsd:element name="limit" type="xsd:int" />
+          <xsd:element name="country_code" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="OperatorInfoArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:OperatorInfo[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="SettingValuesOut">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="settings" type="typens:SettingValueArray" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="BankAccountParamsInArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:BankAccountParamsIn[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceStatus">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="file_statuses" type="typens:FileStatusArray" />
+          <xsd:element name="invoice_id" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="VendorAction">
+        <xsd:all>
+          <xsd:element name="company_id" type="xsd:string" />
+          <xsd:element name="incoming_invoices" type="typens:StringArray" />
+          <xsd:element name="incoming_orders" type="typens:StringArray" />
+          <xsd:element name="invoice_errors" type="typens:StringArray" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="IssuingAgencyInfo">
+        <xsd:all>
+          <xsd:element name="agencyname" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="iso6523" type="xsd:string" />
+          <xsd:element name="schemeid" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CompanyLookupOutDArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:CompanyLookupOutD[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceParamsOutC">
+        <xsd:all>
+          <xsd:element name="customer_post_office" type="xsd:string" />
+          <xsd:element name="customer_email" type="xsd:string" />
+          <xsd:element name="state" type="xsd:int" />
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="order_nr" type="xsd:string" />
+          <xsd:element name="delivery_date" type="xsd:string" />
+          <xsd:element name="company_paper_fee" type="xsd:string" />
+          <xsd:element name="invoice_delivery_address" type="typens:InvoiceDeliveryAddressOut" />
+          <xsd:element name="customer_nr" type="xsd:string" />
+          <xsd:element name="customer_reference" type="xsd:string" />
+          <xsd:element name="sum_tax" type="xsd:string" />
+          <xsd:element name="customer_post_code" type="xsd:string" />
+          <xsd:element name="actions" type="typens:InvoiceActionParamsOutArray" />
+          <xsd:element name="invoice_seller_information" type="typens:InvoiceSellerInformationOut" />
+          <xsd:element name="accounts" type="typens:InvoiceAccountParamsOutArray" />
+          <xsd:element name="data" type="xsd:string" />
+          <xsd:element name="customer_country" type="xsd:string" />
+          <xsd:element name="invoice_nr" type="xsd:string" />
+          <xsd:element name="customer_address1" type="xsd:string" />
+          <xsd:element name="reference_nr" type="xsd:string" />
+          <xsd:element name="currency" type="xsd:string" />
+          <xsd:element name="customer_address2" type="xsd:string" />
+          <xsd:element name="company_comment" type="xsd:string" />
+          <xsd:element name="lang" type="xsd:string" />
+          <xsd:element name="work_order_nr" type="xsd:string" />
+          <xsd:element name="notes" type="xsd:string" />
+          <xsd:element name="date" type="xsd:string" />
+          <xsd:element name="company_reference" type="xsd:string" />
+          <xsd:element name="items" type="typens:ItemsOutArray" />
+          <xsd:element name="customer_name" type="xsd:string" />
+          <xsd:element name="customer_state" type="xsd:string" />
+          <xsd:element name="payment_terms" type="xsd:string" />
+          <xsd:element name="customer_contact_p" type="xsd:string" />
+          <xsd:element name="company_reminder" type="xsd:string" />
+          <xsd:element name="customer_comment" type="xsd:string" />
+          <xsd:element name="customer_bid" type="xsd:string" />
+          <xsd:element name="attachments" type="typens:FileAttachmentArray" />
+          <xsd:element name="date_due" type="xsd:string" />
+          <xsd:element name="sum" type="xsd:string" />
+          <xsd:element name="id" type="xsd:string" />
+          <xsd:element name="delivery_type" type="xsd:string" />
+          <xsd:element name="company_interest" type="xsd:string" />
+          <xsd:element name="customer_ovt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceDeliveryAddressOut">
+        <xsd:all>
+          <xsd:element name="state" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="post_code" type="xsd:string" />
+          <xsd:element name="post_office" type="xsd:string" />
+          <xsd:element name="address1" type="xsd:string" />
+          <xsd:element name="address2" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="id" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceStateArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:InvoiceState[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="InboundInvoiceParamsOutCArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:InboundInvoiceParamsOutC[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceSellerInformationIn">
+        <xsd:all>
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="phone" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceActionParamsOutArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:InvoiceActionParamsOut[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="FileStatusArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:FileStatus[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="BankAccountParamsIn">
+        <xsd:all>
+          <xsd:element name="bank" type="xsd:string" />
+          <xsd:element name="default" type="xsd:boolean" />
+          <xsd:element name="account" type="xsd:string" />
+          <xsd:element name="swift" type="xsd:string" />
+          <xsd:element name="iban" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="SediOrderStatus">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="order_id" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="PostalAddressParamsOut">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="state" type="xsd:string" />
+          <xsd:element name="fax" type="xsd:string" />
+          <xsd:element name="post_code" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="post_office" type="xsd:string" />
+          <xsd:element name="gsm" type="xsd:string" />
+          <xsd:element name="lang" type="xsd:string" />
+          <xsd:element name="address1" type="xsd:string" />
+          <xsd:element name="city" type="xsd:string" />
+          <xsd:element name="address2" type="xsd:string" />
+          <xsd:element name="id" type="xsd:string" />
+          <xsd:element name="default" type="xsd:boolean" />
+          <xsd:element name="phone" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="OperatorStruct">
+        <xsd:all>
+          <xsd:element name="enabled" type="xsd:boolean" />
+          <xsd:element name="recipient_id" type="xsd:string" />
+          <xsd:element name="sender_id" type="xsd:string" />
+          <xsd:element name="operator_id" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ConsumerAgreementQueryResponse">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="agreements" type="typens:ConsumerInfoOutArray" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InboundInvoiceListItem">
+        <xsd:all>
+          <xsd:element name="invoice_id" type="xsd:string" />
+          <xsd:element name="timestamp" type="xsd:string" />
+          <xsd:element name="recipient_id" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InvoiceState">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="state" type="xsd:int" />
+          <xsd:element name="invoice_id" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CompanyActionOutput">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="incoming_invoices" type="typens:StringArray" />
+          <xsd:element name="incoming_orders" type="typens:StringArray" />
+          <xsd:element name="invoice_errors" type="typens:StringArray" />
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="api-get_invoice_image_as_format">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+    <wsdl:part name="image_format" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-get_invoice_image_as_formatResponse">
+    <wsdl:part name="return" type="typens:FileAttachmentArray" />
+  </wsdl:message>
+  <wsdl:message name="api-consumer_agreement_status">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="reference_nr" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-consumer_agreement_statusResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-user_list">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+  </wsdl:message>
+  <wsdl:message name="api-user_listResponse">
+    <wsdl:part name="return" type="typens:UserParamsOutArray" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_accept">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_acceptResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_dispute">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+    <wsdl:part name="message" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_disputeResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_list_between_dates">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="timestamp_start" type="xsd:string" />
+    <wsdl:part name="timestamp_end" type="xsd:string" />
+    <wsdl:part name="all" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_list_between_datesResponse">
+    <wsdl:part name="return" type="typens:InvoiceParamsOutCArray" />
+  </wsdl:message>
+  <wsdl:message name="api-user_update">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+    <wsdl:part name="user_params" type="typens:UserParamsInD" />
+  </wsdl:message>
+  <wsdl:message name="api-user_updateResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-list_vendor_actions">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="timestamp" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-list_vendor_actionsResponse">
+    <wsdl:part name="return" type="typens:VendorActionOutput" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_show_operator_file">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_show_operator_fileResponse">
+    <wsdl:part name="return" type="typens:FileOut" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_put_file">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="file_in" type="typens:FileAttachment" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_put_fileResponse">
+    <wsdl:part name="return" type="typens:FileStatusArray" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_put_invoice">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="file_in" type="typens:FileAttachment" />
+    <wsdl:part name="xmlformat" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_put_invoiceResponse">
+    <wsdl:part name="return" type="typens:InvoiceStatus" />
+  </wsdl:message>
+  <wsdl:message name="api-list_company_actions">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="timestamp" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-list_company_actionsResponse">
+    <wsdl:part name="return" type="typens:CompanyActionOutput" />
+  </wsdl:message>
+  <wsdl:message name="api-company_settings_show">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+  </wsdl:message>
+  <wsdl:message name="api-company_settings_showResponse">
+    <wsdl:part name="return" type="typens:CompanySettingsParamsD" />
+  </wsdl:message>
+  <wsdl:message name="api-link_vendor_api_key">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+  </wsdl:message>
+  <wsdl:message name="api-link_vendor_api_keyResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-server_time" />
+  <wsdl:message name="api-server_timeResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_confirm">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+    <wsdl:part name="payment_date" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_confirmResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-sedi_order_put">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="order_in" type="typens:FileAttachment" />
+  </wsdl:message>
+  <wsdl:message name="api-sedi_order_putResponse">
+    <wsdl:part name="return" type="typens:SediOrderStatus" />
+  </wsdl:message>
+  <wsdl:message name="api-user_create">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="user_params" type="typens:UserParamsInD" />
+  </wsdl:message>
+  <wsdl:message name="api-user_createResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-company_lookup">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="company_lookup_params" type="typens:CompanyLookupParams" />
+  </wsdl:message>
+  <wsdl:message name="api-company_lookupResponse">
+    <wsdl:part name="return" type="typens:CompanyLookupOutDArray" />
+  </wsdl:message>
+  <wsdl:message name="api-postal_address_create">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="postal_address_params" type="typens:PostalAddressParamsIn" />
+  </wsdl:message>
+  <wsdl:message name="api-postal_address_createResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-show_company_configuration">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+  </wsdl:message>
+  <wsdl:message name="api-show_company_configurationResponse">
+    <wsdl:part name="return" type="typens:SettingValuesOut" />
+  </wsdl:message>
+  <wsdl:message name="api-b2c_issuer_agreement_order_with_ocr">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="signer_name" type="xsd:string" />
+    <wsdl:part name="signer_email" type="xsd:string" />
+    <wsdl:part name="ocr_kid_length" type="xsd:string" />
+    <wsdl:part name="ocr_reference_position" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-b2c_issuer_agreement_order_with_ocrResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-get_consumer_link">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="consumer" type="typens:ConsumerInfoIn" />
+  </wsdl:message>
+  <wsdl:message name="api-get_consumer_linkResponse">
+    <wsdl:part name="return" type="typens:ConsumerLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="api-partner_trx_list">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="date_start" type="xsd:string" />
+    <wsdl:part name="date_end" type="xsd:string" />
+    <wsdl:part name="csv_file" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="api-partner_trx_listResponse">
+    <wsdl:part name="return" type="typens:TrxListResponseD" />
+  </wsdl:message>
+  <wsdl:message name="api-user_create_e">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="user_params" type="typens:UserParamsInE" />
+  </wsdl:message>
+  <wsdl:message name="api-user_create_eResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-register_duetto_payment">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="duetto_payment_struct" type="typens:DuettoPaymentStruct" />
+  </wsdl:message>
+  <wsdl:message name="api-register_duetto_paymentResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-list_vendor_inbound_invoices">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="timestamp_start" type="xsd:string" />
+    <wsdl:part name="timestamp_end" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-list_vendor_inbound_invoicesResponse">
+    <wsdl:part name="return" type="typens:InboundInvoiceList" />
+  </wsdl:message>
+  <wsdl:message name="api-postal_address_list">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+  </wsdl:message>
+  <wsdl:message name="api-postal_address_listResponse">
+    <wsdl:part name="return" type="typens:PostalAddressParamsOutArray" />
+  </wsdl:message>
+  <wsdl:message name="api-user_update_e">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+    <wsdl:part name="user_params" type="typens:UserParamsInE" />
+  </wsdl:message>
+  <wsdl:message name="api-user_update_eResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-b2c_issuer_agreement_order">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="signer_name" type="xsd:string" />
+    <wsdl:part name="signer_email" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-b2c_issuer_agreement_orderResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-enable_operator">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="operator_struct" type="typens:OperatorStruct" />
+  </wsdl:message>
+  <wsdl:message name="api-enable_operatorResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-company_lookup_with_operator">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="company_lookup_params" type="typens:CompanyLookupParams" />
+  </wsdl:message>
+  <wsdl:message name="api-company_lookup_with_operatorResponse">
+    <wsdl:part name="return" type="typens:CompanyLookupOutExtendedArray" />
+  </wsdl:message>
+  <wsdl:message name="api-company_show">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+  </wsdl:message>
+  <wsdl:message name="api-company_showResponse">
+    <wsdl:part name="return" type="typens:CompanyParamsOut" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_show_original_xml">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_show_original_xmlResponse">
+    <wsdl:part name="return" type="typens:FileOut" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_state_list">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="invoices" type="typens:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_state_listResponse">
+    <wsdl:part name="return" type="typens:InvoiceStateArray" />
+  </wsdl:message>
+  <wsdl:message name="api-remove_logo">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+  </wsdl:message>
+  <wsdl:message name="api-remove_logoResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-user_show">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-user_showResponse">
+    <wsdl:part name="return" type="typens:UserParamsOut" />
+  </wsdl:message>
+  <wsdl:message name="api-get_invoice_id">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="invoice_number" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-get_invoice_idResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-company_order_receiving">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="receive" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="api-company_order_receivingResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-register">
+    <wsdl:part name="registration_params" type="typens:RegistrationParamsInD" />
+  </wsdl:message>
+  <wsdl:message name="api-registerResponse">
+    <wsdl:part name="return" type="typens:RegistrationParamsOutD" />
+  </wsdl:message>
+  <wsdl:message name="api-scan_account_show">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+  </wsdl:message>
+  <wsdl:message name="api-scan_account_showResponse">
+    <wsdl:part name="return" type="typens:ScanAccountParamsOut" />
+  </wsdl:message>
+  <wsdl:message name="api-postal_address_delete">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-postal_address_deleteResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-unlink_vendor_api_key">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+  </wsdl:message>
+  <wsdl:message name="api-unlink_vendor_api_keyResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-collection_send">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="invoices" type="typens:StringArray" />
+    <wsdl:part name="collection_type" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-collection_sendResponse">
+    <wsdl:part name="return" type="typens:CollectionResponseArray" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_decline">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+    <wsdl:part name="message" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_declineResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-open_finnish_bank_agreement">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="company_id" type="xsd:string" />
+    <wsdl:part name="contact_person_name" type="xsd:string" />
+    <wsdl:part name="activation_notify_email" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-open_finnish_bank_agreementResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-company_list">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+  </wsdl:message>
+  <wsdl:message name="api-company_listResponse">
+    <wsdl:part name="return" type="typens:CompanyParamsOutArray" />
+  </wsdl:message>
+  <wsdl:message name="api-configure_company">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="settings" type="typens:SettingValueArray" />
+  </wsdl:message>
+  <wsdl:message name="api-configure_companyResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-list_operators" />
+  <wsdl:message name="api-list_operatorsResponse">
+    <wsdl:part name="return" type="typens:OperatorInfoArray" />
+  </wsdl:message>
+  <wsdl:message name="api-sedi_order_show_inbound">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="order_id" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-sedi_order_show_inboundResponse">
+    <wsdl:part name="return" type="typens:SediOrderFile" />
+  </wsdl:message>
+  <wsdl:message name="api-scan_account_disable">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+  </wsdl:message>
+  <wsdl:message name="api-scan_account_disableResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-inbound_invoice_show">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+    <wsdl:part name="include_files" type="xsd:boolean" />
+    <wsdl:part name="xmlformat" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-inbound_invoice_showResponse">
+    <wsdl:part name="return" type="typens:InboundInvoiceParamsOutC" />
+  </wsdl:message>
+  <wsdl:message name="api-user_delete">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-user_deleteResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-update_logo">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="company_logo_params" type="typens:CompanyLogoParams" />
+  </wsdl:message>
+  <wsdl:message name="api-update_logoResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-register_with_password">
+    <wsdl:part name="registration_params" type="typens:RegistrationParamsInD" />
+    <wsdl:part name="user_password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-register_with_passwordResponse">
+    <wsdl:part name="return" type="typens:RegistrationParamsOutD" />
+  </wsdl:message>
+  <wsdl:message name="api-scan_account_order_with_serial">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="return_address" type="typens:ScanAddress" />
+    <wsdl:part name="serial" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-scan_account_order_with_serialResponse">
+    <wsdl:part name="return" type="typens:ScanAccountParamsOut" />
+  </wsdl:message>
+  <wsdl:message name="api-scan_account_order">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="return_address" type="typens:ScanAddress" />
+  </wsdl:message>
+  <wsdl:message name="api-scan_account_orderResponse">
+    <wsdl:part name="return" type="typens:ScanAccountParamsOut" />
+  </wsdl:message>
+  <wsdl:message name="api-consumer_agreements_query">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="query" type="typens:ConsumerAgreementQuery" />
+  </wsdl:message>
+  <wsdl:message name="api-consumer_agreements_queryResponse">
+    <wsdl:part name="return" type="typens:ConsumerAgreementQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_put_finvoice">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="finvoice_in" type="typens:FinvoiceTrx" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_put_finvoiceResponse">
+    <wsdl:part name="return" type="typens:InvoiceStatus" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_create">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="invoice_params" type="typens:InvoiceParamsInC" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_createResponse">
+    <wsdl:part name="return" type="typens:InvoiceStatus" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_put_invoice_with_metadata">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="file_in" type="typens:FileAttachment" />
+    <wsdl:part name="xmlformat" type="xsd:string" />
+    <wsdl:part name="metadata" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_put_invoice_with_metadataResponse">
+    <wsdl:part name="return" type="typens:InvoiceStatus" />
+  </wsdl:message>
+  <wsdl:message name="api-postal_address_show">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-postal_address_showResponse">
+    <wsdl:part name="return" type="typens:PostalAddressParamsOut" />
+  </wsdl:message>
+  <wsdl:message name="api-list_schemes">
+    <wsdl:part name="country" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-list_schemesResponse">
+    <wsdl:part name="return" type="typens:IssuingAgencyInfoArray" />
+  </wsdl:message>
+  <wsdl:message name="api-sedi_order_list_inbound">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="timestamp" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-sedi_order_list_inboundResponse">
+    <wsdl:part name="return" type="typens:SediOrderParamsOutArray" />
+  </wsdl:message>
+  <wsdl:message name="api-postal_address_update">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+    <wsdl:part name="postal_address_params" type="typens:PostalAddressParamsIn" />
+  </wsdl:message>
+  <wsdl:message name="api-postal_address_updateResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_list_inbound_between_dates">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="timestamp_start" type="xsd:string" />
+    <wsdl:part name="timestamp_end" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_list_inbound_between_datesResponse">
+    <wsdl:part name="return" type="typens:InboundInvoiceParamsOutCArray" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_show">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="id" type="xsd:string" />
+    <wsdl:part name="include_files" type="xsd:boolean" />
+    <wsdl:part name="xmlformat" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-invoice_showResponse">
+    <wsdl:part name="return" type="typens:InvoiceParamsOutD" />
+  </wsdl:message>
+  <wsdl:message name="api-company_invoice_receiving">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="receive" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="api-company_invoice_receivingResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-company_settings_update">
+    <wsdl:part name="api_keys" type="typens:ApiKeys" />
+    <wsdl:part name="company_setting_params" type="typens:CompanySettingsParamsD" />
+  </wsdl:message>
+  <wsdl:message name="api-company_settings_updateResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="api-hello_world" />
+  <wsdl:message name="api-hello_worldResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="MaventaApiPort">
+    <wsdl:operation name="get_invoice_image_as_format">
+      <wsdl:input message="typens:api-get_invoice_image_as_format" />
+      <wsdl:output message="typens:api-get_invoice_image_as_formatResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="consumer_agreement_status">
+      <wsdl:input message="typens:api-consumer_agreement_status" />
+      <wsdl:output message="typens:api-consumer_agreement_statusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="user_list">
+      <wsdl:input message="typens:api-user_list" />
+      <wsdl:output message="typens:api-user_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_accept">
+      <wsdl:input message="typens:api-invoice_accept" />
+      <wsdl:output message="typens:api-invoice_acceptResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_dispute">
+      <wsdl:input message="typens:api-invoice_dispute" />
+      <wsdl:output message="typens:api-invoice_disputeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_list_between_dates">
+      <wsdl:input message="typens:api-invoice_list_between_dates" />
+      <wsdl:output message="typens:api-invoice_list_between_datesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="user_update">
+      <wsdl:input message="typens:api-user_update" />
+      <wsdl:output message="typens:api-user_updateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="list_vendor_actions">
+      <wsdl:input message="typens:api-list_vendor_actions" />
+      <wsdl:output message="typens:api-list_vendor_actionsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_show_operator_file">
+      <wsdl:input message="typens:api-invoice_show_operator_file" />
+      <wsdl:output message="typens:api-invoice_show_operator_fileResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_put_file">
+      <wsdl:input message="typens:api-invoice_put_file" />
+      <wsdl:output message="typens:api-invoice_put_fileResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_put_invoice">
+      <wsdl:input message="typens:api-invoice_put_invoice" />
+      <wsdl:output message="typens:api-invoice_put_invoiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="list_company_actions">
+      <wsdl:input message="typens:api-list_company_actions" />
+      <wsdl:output message="typens:api-list_company_actionsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="company_settings_show">
+      <wsdl:input message="typens:api-company_settings_show" />
+      <wsdl:output message="typens:api-company_settings_showResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="link_vendor_api_key">
+      <wsdl:input message="typens:api-link_vendor_api_key" />
+      <wsdl:output message="typens:api-link_vendor_api_keyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="server_time">
+      <wsdl:input message="typens:api-server_time" />
+      <wsdl:output message="typens:api-server_timeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_confirm">
+      <wsdl:input message="typens:api-invoice_confirm" />
+      <wsdl:output message="typens:api-invoice_confirmResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sedi_order_put">
+      <wsdl:input message="typens:api-sedi_order_put" />
+      <wsdl:output message="typens:api-sedi_order_putResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="user_create">
+      <wsdl:input message="typens:api-user_create" />
+      <wsdl:output message="typens:api-user_createResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="company_lookup">
+      <wsdl:input message="typens:api-company_lookup" />
+      <wsdl:output message="typens:api-company_lookupResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="postal_address_create">
+      <wsdl:input message="typens:api-postal_address_create" />
+      <wsdl:output message="typens:api-postal_address_createResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="show_company_configuration">
+      <wsdl:input message="typens:api-show_company_configuration" />
+      <wsdl:output message="typens:api-show_company_configurationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="b2c_issuer_agreement_order_with_ocr">
+      <wsdl:input message="typens:api-b2c_issuer_agreement_order_with_ocr" />
+      <wsdl:output message="typens:api-b2c_issuer_agreement_order_with_ocrResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="get_consumer_link">
+      <wsdl:input message="typens:api-get_consumer_link" />
+      <wsdl:output message="typens:api-get_consumer_linkResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="partner_trx_list">
+      <wsdl:input message="typens:api-partner_trx_list" />
+      <wsdl:output message="typens:api-partner_trx_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="user_create_e">
+      <wsdl:input message="typens:api-user_create_e" />
+      <wsdl:output message="typens:api-user_create_eResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="register_duetto_payment">
+      <wsdl:input message="typens:api-register_duetto_payment" />
+      <wsdl:output message="typens:api-register_duetto_paymentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="list_vendor_inbound_invoices">
+      <wsdl:input message="typens:api-list_vendor_inbound_invoices" />
+      <wsdl:output message="typens:api-list_vendor_inbound_invoicesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="postal_address_list">
+      <wsdl:input message="typens:api-postal_address_list" />
+      <wsdl:output message="typens:api-postal_address_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="user_update_e">
+      <wsdl:input message="typens:api-user_update_e" />
+      <wsdl:output message="typens:api-user_update_eResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="b2c_issuer_agreement_order">
+      <wsdl:input message="typens:api-b2c_issuer_agreement_order" />
+      <wsdl:output message="typens:api-b2c_issuer_agreement_orderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="enable_operator">
+      <wsdl:input message="typens:api-enable_operator" />
+      <wsdl:output message="typens:api-enable_operatorResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="company_lookup_with_operator">
+      <wsdl:input message="typens:api-company_lookup_with_operator" />
+      <wsdl:output message="typens:api-company_lookup_with_operatorResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="company_show">
+      <wsdl:input message="typens:api-company_show" />
+      <wsdl:output message="typens:api-company_showResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_show_original_xml">
+      <wsdl:input message="typens:api-invoice_show_original_xml" />
+      <wsdl:output message="typens:api-invoice_show_original_xmlResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_state_list">
+      <wsdl:input message="typens:api-invoice_state_list" />
+      <wsdl:output message="typens:api-invoice_state_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="remove_logo">
+      <wsdl:input message="typens:api-remove_logo" />
+      <wsdl:output message="typens:api-remove_logoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="user_show">
+      <wsdl:input message="typens:api-user_show" />
+      <wsdl:output message="typens:api-user_showResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="get_invoice_id">
+      <wsdl:input message="typens:api-get_invoice_id" />
+      <wsdl:output message="typens:api-get_invoice_idResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="company_order_receiving">
+      <wsdl:input message="typens:api-company_order_receiving" />
+      <wsdl:output message="typens:api-company_order_receivingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="register">
+      <wsdl:input message="typens:api-register" />
+      <wsdl:output message="typens:api-registerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="scan_account_show">
+      <wsdl:input message="typens:api-scan_account_show" />
+      <wsdl:output message="typens:api-scan_account_showResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="postal_address_delete">
+      <wsdl:input message="typens:api-postal_address_delete" />
+      <wsdl:output message="typens:api-postal_address_deleteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="unlink_vendor_api_key">
+      <wsdl:input message="typens:api-unlink_vendor_api_key" />
+      <wsdl:output message="typens:api-unlink_vendor_api_keyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="collection_send">
+      <wsdl:input message="typens:api-collection_send" />
+      <wsdl:output message="typens:api-collection_sendResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_decline">
+      <wsdl:input message="typens:api-invoice_decline" />
+      <wsdl:output message="typens:api-invoice_declineResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="open_finnish_bank_agreement">
+      <wsdl:input message="typens:api-open_finnish_bank_agreement" />
+      <wsdl:output message="typens:api-open_finnish_bank_agreementResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="company_list">
+      <wsdl:input message="typens:api-company_list" />
+      <wsdl:output message="typens:api-company_listResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="configure_company">
+      <wsdl:input message="typens:api-configure_company" />
+      <wsdl:output message="typens:api-configure_companyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="list_operators">
+      <wsdl:input message="typens:api-list_operators" />
+      <wsdl:output message="typens:api-list_operatorsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sedi_order_show_inbound">
+      <wsdl:input message="typens:api-sedi_order_show_inbound" />
+      <wsdl:output message="typens:api-sedi_order_show_inboundResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="scan_account_disable">
+      <wsdl:input message="typens:api-scan_account_disable" />
+      <wsdl:output message="typens:api-scan_account_disableResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="inbound_invoice_show">
+      <wsdl:input message="typens:api-inbound_invoice_show" />
+      <wsdl:output message="typens:api-inbound_invoice_showResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="user_delete">
+      <wsdl:input message="typens:api-user_delete" />
+      <wsdl:output message="typens:api-user_deleteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="update_logo">
+      <wsdl:input message="typens:api-update_logo" />
+      <wsdl:output message="typens:api-update_logoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="register_with_password">
+      <wsdl:input message="typens:api-register_with_password" />
+      <wsdl:output message="typens:api-register_with_passwordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="scan_account_order_with_serial">
+      <wsdl:input message="typens:api-scan_account_order_with_serial" />
+      <wsdl:output message="typens:api-scan_account_order_with_serialResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="scan_account_order">
+      <wsdl:input message="typens:api-scan_account_order" />
+      <wsdl:output message="typens:api-scan_account_orderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="consumer_agreements_query">
+      <wsdl:input message="typens:api-consumer_agreements_query" />
+      <wsdl:output message="typens:api-consumer_agreements_queryResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_put_finvoice">
+      <wsdl:input message="typens:api-invoice_put_finvoice" />
+      <wsdl:output message="typens:api-invoice_put_finvoiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_create">
+      <wsdl:input message="typens:api-invoice_create" />
+      <wsdl:output message="typens:api-invoice_createResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_put_invoice_with_metadata">
+      <wsdl:input message="typens:api-invoice_put_invoice_with_metadata" />
+      <wsdl:output message="typens:api-invoice_put_invoice_with_metadataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="postal_address_show">
+      <wsdl:input message="typens:api-postal_address_show" />
+      <wsdl:output message="typens:api-postal_address_showResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="list_schemes">
+      <wsdl:input message="typens:api-list_schemes" />
+      <wsdl:output message="typens:api-list_schemesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sedi_order_list_inbound">
+      <wsdl:input message="typens:api-sedi_order_list_inbound" />
+      <wsdl:output message="typens:api-sedi_order_list_inboundResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="postal_address_update">
+      <wsdl:input message="typens:api-postal_address_update" />
+      <wsdl:output message="typens:api-postal_address_updateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_list_inbound_between_dates">
+      <wsdl:input message="typens:api-invoice_list_inbound_between_dates" />
+      <wsdl:output message="typens:api-invoice_list_inbound_between_datesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="invoice_show">
+      <wsdl:input message="typens:api-invoice_show" />
+      <wsdl:output message="typens:api-invoice_showResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="company_invoice_receiving">
+      <wsdl:input message="typens:api-company_invoice_receiving" />
+      <wsdl:output message="typens:api-company_invoice_receivingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="company_settings_update">
+      <wsdl:input message="typens:api-company_settings_update" />
+      <wsdl:output message="typens:api-company_settings_updateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="hello_world">
+      <wsdl:input message="typens:api-hello_world" />
+      <wsdl:output message="typens:api-hello_worldResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MaventaApiBinding" type="typens:MaventaApiPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="get_invoice_image_as_format">
+      <soap:operation soapAction="/denver/api/get_invoice_image_as_format" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consumer_agreement_status">
+      <soap:operation soapAction="/denver/api/consumer_agreement_status" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="user_list">
+      <soap:operation soapAction="/denver/api/user_list" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_accept">
+      <soap:operation soapAction="/denver/api/invoice_accept" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_dispute">
+      <soap:operation soapAction="/denver/api/invoice_dispute" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_list_between_dates">
+      <soap:operation soapAction="/denver/api/invoice_list_between_dates" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="user_update">
+      <soap:operation soapAction="/denver/api/user_update" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="list_vendor_actions">
+      <soap:operation soapAction="/denver/api/list_vendor_actions" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_show_operator_file">
+      <soap:operation soapAction="/denver/api/invoice_show_operator_file" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_put_file">
+      <soap:operation soapAction="/denver/api/invoice_put_file" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_put_invoice">
+      <soap:operation soapAction="/denver/api/invoice_put_invoice" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="list_company_actions">
+      <soap:operation soapAction="/denver/api/list_company_actions" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="company_settings_show">
+      <soap:operation soapAction="/denver/api/company_settings_show" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="link_vendor_api_key">
+      <soap:operation soapAction="/denver/api/link_vendor_api_key" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="server_time">
+      <soap:operation soapAction="/denver/api/server_time" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_confirm">
+      <soap:operation soapAction="/denver/api/invoice_confirm" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sedi_order_put">
+      <soap:operation soapAction="/denver/api/sedi_order_put" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="user_create">
+      <soap:operation soapAction="/denver/api/user_create" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="company_lookup">
+      <soap:operation soapAction="/denver/api/company_lookup" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postal_address_create">
+      <soap:operation soapAction="/denver/api/postal_address_create" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="show_company_configuration">
+      <soap:operation soapAction="/denver/api/show_company_configuration" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="b2c_issuer_agreement_order_with_ocr">
+      <soap:operation soapAction="/denver/api/b2c_issuer_agreement_order_with_ocr" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_consumer_link">
+      <soap:operation soapAction="/denver/api/get_consumer_link" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="partner_trx_list">
+      <soap:operation soapAction="/denver/api/partner_trx_list" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="user_create_e">
+      <soap:operation soapAction="/denver/api/user_create_e" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="register_duetto_payment">
+      <soap:operation soapAction="/denver/api/register_duetto_payment" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="list_vendor_inbound_invoices">
+      <soap:operation soapAction="/denver/api/list_vendor_inbound_invoices" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postal_address_list">
+      <soap:operation soapAction="/denver/api/postal_address_list" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="user_update_e">
+      <soap:operation soapAction="/denver/api/user_update_e" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="b2c_issuer_agreement_order">
+      <soap:operation soapAction="/denver/api/b2c_issuer_agreement_order" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enable_operator">
+      <soap:operation soapAction="/denver/api/enable_operator" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="company_lookup_with_operator">
+      <soap:operation soapAction="/denver/api/company_lookup_with_operator" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="company_show">
+      <soap:operation soapAction="/denver/api/company_show" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_show_original_xml">
+      <soap:operation soapAction="/denver/api/invoice_show_original_xml" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_state_list">
+      <soap:operation soapAction="/denver/api/invoice_state_list" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="remove_logo">
+      <soap:operation soapAction="/denver/api/remove_logo" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="user_show">
+      <soap:operation soapAction="/denver/api/user_show" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_invoice_id">
+      <soap:operation soapAction="/denver/api/get_invoice_id" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="company_order_receiving">
+      <soap:operation soapAction="/denver/api/company_order_receiving" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="register">
+      <soap:operation soapAction="/denver/api/register" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scan_account_show">
+      <soap:operation soapAction="/denver/api/scan_account_show" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postal_address_delete">
+      <soap:operation soapAction="/denver/api/postal_address_delete" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unlink_vendor_api_key">
+      <soap:operation soapAction="/denver/api/unlink_vendor_api_key" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="collection_send">
+      <soap:operation soapAction="/denver/api/collection_send" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_decline">
+      <soap:operation soapAction="/denver/api/invoice_decline" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="open_finnish_bank_agreement">
+      <soap:operation soapAction="/denver/api/open_finnish_bank_agreement" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="company_list">
+      <soap:operation soapAction="/denver/api/company_list" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="configure_company">
+      <soap:operation soapAction="/denver/api/configure_company" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="list_operators">
+      <soap:operation soapAction="/denver/api/list_operators" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sedi_order_show_inbound">
+      <soap:operation soapAction="/denver/api/sedi_order_show_inbound" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scan_account_disable">
+      <soap:operation soapAction="/denver/api/scan_account_disable" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inbound_invoice_show">
+      <soap:operation soapAction="/denver/api/inbound_invoice_show" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="user_delete">
+      <soap:operation soapAction="/denver/api/user_delete" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update_logo">
+      <soap:operation soapAction="/denver/api/update_logo" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="register_with_password">
+      <soap:operation soapAction="/denver/api/register_with_password" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scan_account_order_with_serial">
+      <soap:operation soapAction="/denver/api/scan_account_order_with_serial" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scan_account_order">
+      <soap:operation soapAction="/denver/api/scan_account_order" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consumer_agreements_query">
+      <soap:operation soapAction="/denver/api/consumer_agreements_query" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_put_finvoice">
+      <soap:operation soapAction="/denver/api/invoice_put_finvoice" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_create">
+      <soap:operation soapAction="/denver/api/invoice_create" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_put_invoice_with_metadata">
+      <soap:operation soapAction="/denver/api/invoice_put_invoice_with_metadata" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postal_address_show">
+      <soap:operation soapAction="/denver/api/postal_address_show" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="list_schemes">
+      <soap:operation soapAction="/denver/api/list_schemes" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sedi_order_list_inbound">
+      <soap:operation soapAction="/denver/api/sedi_order_list_inbound" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postal_address_update">
+      <soap:operation soapAction="/denver/api/postal_address_update" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_list_inbound_between_dates">
+      <soap:operation soapAction="/denver/api/invoice_list_inbound_between_dates" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invoice_show">
+      <soap:operation soapAction="/denver/api/invoice_show" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="company_invoice_receiving">
+      <soap:operation soapAction="/denver/api/company_invoice_receiving" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="company_settings_update">
+      <soap:operation soapAction="/denver/api/company_settings_update" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hello_world">
+      <soap:operation soapAction="/denver/api/hello_world" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://secure.maventa.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MaventaService">
+    <wsdl:port name="MaventaApiPort" binding="typens:MaventaApiBinding">
+      <soap:address location="https://testing.maventa.com/apis/denver/api" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
